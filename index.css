@@ -14,10 +14,10 @@ body {
   width: 450px;
 }
 .calculator,
-.input {
+.calc-input {
   background-color: #333;
 }
-.input {
+.calc-input {
   border: 1px solid #000;
   border-radius: 0;
   box-shadow: 0 1px 10px hsla(0, 0%, 100%, 0.7);

@@ -1,4 +1,4 @@
-let input = document.querySelector('.input')
+let input = document.querySelector('.calc-input')
 let basicMode = document.querySelector('.basic-mode')
 let complexMode = document.querySelector('.complex-mode')
 let currentKey = ''
@@ -91,12 +91,10 @@ buttons.forEach(btn => {
 
 
 function equals() {
-  if (currentKey.indexOf('^') > -1) {
+  if (currentKey){
     let base = currentKey.slice(0, currentKey.indexOf('^'))
     let exponent = currentKey.slice(currentKey.indexOf('^') + 1)
-    input.value = currentKey = eval('Math.pow(' + base + ',' + exponent + ')')
-  } else {
-    input.value = currentKey = eval(currentKey)
+    currentKey.indexOf('^') > -1 ? input.value = currentKey = eval('Math.pow(' + base + ',' + exponent + ')') : input.value = currentKey = eval(currentKey)
   }
 }
 
@@ -105,7 +103,6 @@ function clear() {
 }
 
 function backspace() {
-  console.log(currentKey);
   input.value = currentKey = currentKey.toString().substring(0, currentKey.length - 1)
 }
 
