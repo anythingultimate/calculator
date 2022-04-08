@@ -1,107 +1,28 @@
-let cm1 = document.querySelector('.mode1')
-let cm2 = document.querySelector('.mode2')
-let bm = document.querySelector('.basic-mode')
-let cm = document.querySelector('.complex-mode')
 let input = document.querySelector('.input')
-
-function toggleButton() {
-  getCm1style = getComputedStyle(cm1).display
-  geCm2style = getComputedStyle(cm2).display
-  if (getCm1style == 'none') {
-    cm1.style.display = 'flex'
-    cm2.style.display = 'none'
-    bm.style.display = 'flex'
-    cm.style.display = 'none'
-  } else {
-    cm1.style.display = 'none'
-    cm2.style.display = 'flex'
-    bm.style.display = 'none'
-    cm.style.display = 'flex'
-  }
-}
-
-// buttonLength = document.querySelectorAll('.button').length
-// let currentKey = ''
-// for (let i = 0; i < buttonLength; i++) {
-//   let button = document.querySelectorAll('.button')[i]
-//   button.addEventListener('click', function (e) {
-//     let key = e.target.innerText
-//     if (
-//       key != '=' &&
-//       key != 'C' &&
-//       key != '*' &&
-//       key != '/' &&
-//       key != '√' &&
-//       key != 'x ²' &&
-//       key != '%' &&
-//       key != '←' &&
-//       key != '±' &&
-//       key != 'sin' &&
-//       key != 'cos' &&
-//       key != 'tan' &&
-//       key != 'log' &&
-//       key != 'ln' &&
-//       key != 'x^' &&
-//       key != 'x !' &&
-//       key != 'π' &&
-//       key != 'e' &&
-//       key != 'rad' &&
-//       key != '∘'
-//     ) {
-//       input.value = currentKey += key
-//     } else if (key === '=') {
-//       equals()
-//     } else if (key === 'C') {
-//       clear()
-//     } else if (key === '*') {
-//       multiply()
-//     } else if (key === '/') {
-//       divide()
-//     } else if (key === '±') {
-//       plusMinus()
-//     } else if (key === '←') {
-//       backspace()
-//     } else if (key === '%') {
-//       percent()
-//     } else if (key === 'π') {
-//       pi()
-//     } else if (key === 'x ²') {
-//       square()
-//     } else if (key === '√') {
-//       squareRoot()
-//     } else if (key === 'sin') {
-//       sin()
-//     } else if (key === 'cos') {
-//       cos()
-//     } else if (key === 'tan') {
-//       tan()
-//     } else if (key === 'log') {
-//       log()
-//     } else if (key === 'ln') {
-//       ln()
-//     } else if (key === 'x^') {
-//       exponent()
-//     } else if (key === 'x !') {
-//       factorial()
-//     } else if (key === 'e') {
-//       exp()
-//     } else if (key === 'rad') {
-//       radians()
-//     } else if (key === '∘') {
-//       degrees()
-//     }
-//   })
-// }
-
+let basicMode = document.querySelector('.basic-mode')
+let complexMode = document.querySelector('.complex-mode')
 let currentKey = ''
-const buttons = document.querySelectorAll('.button') //Array like element
 
-const buttonsArray = [...buttons] //Converted into array
-
-buttonsArray.forEach(button => {
-  button.addEventListener('click', function (e) {
-    let key = e.target.innerText
-    if (
+let buttons = document.querySelectorAll('button')
+buttons.forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    let key = e.currentTarget.innerText
+    let btnContains = (item) => {
+      return e.currentTarget.classList.contains(item)
+    }
+    if (btnContains('mode1')) {
+      e.currentTarget.style.display = 'none'
+      e.currentTarget.nextElementSibling.style.display = 'block'
+      basicMode.style.display = 'none'
+      complexMode.style.display = 'flex'
+    } else if (btnContains('mode2')) {
+      e.currentTarget.style.display = 'none'
+      e.currentTarget.previousElementSibling.style.display = 'block'
+      complexMode.style.display = 'none'
+      basicMode.style.display = 'flex'
+    } else if (
+      !btnContains('mode1') &&
+      !btnContains('mode2') &&
       key != '=' &&
       key != 'C' &&
       key != '*' &&
@@ -166,7 +87,7 @@ buttonsArray.forEach(button => {
       degrees()
     }
   })
-})
+});
 
 
 function equals() {
@@ -184,7 +105,8 @@ function clear() {
 }
 
 function backspace() {
-  input.value = currentKey = currentKey.substring(0, currentKey.length - 1)
+  console.log(currentKey);
+  input.value = currentKey = currentKey.toString().substring(0, currentKey.length - 1)
 }
 
 function multiply() {

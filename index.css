@@ -41,6 +41,10 @@ body {
   outline: none;
   width: 69px;
 }
+.mode1, .mode2 {
+  margin-bottom: 25px;
+  cursor: pointer;
+}
 .basic-mode {
   justify-content: space-evenly;
 }
