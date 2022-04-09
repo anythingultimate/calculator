@@ -10,8 +10,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 450px;
+  padding: 15px;
+}
+.mode1,
+.mode2 {
+  margin-bottom: 25px;
+  cursor: pointer;
 }
 .calculator,
 .calc-input {
@@ -27,23 +31,12 @@ body {
   margin: 0 0 10px;
   padding: 0 5px;
   transform: rotateX(-20deg);
-  width: 410px;
 }
-.button {
-  background: linear-gradient(hsla(0, 14%, 79%, 0.13), rgba(0, 0, 0, 0.16));
-  border: 1px solid #0d0d0d;
-  border-radius: 4px;
-  box-shadow: inset 0 -1px hsla(0, 0%, 100%, 0.1), inset 0 1px rgba(0, 0, 0, 0.02);
-  color: #d9d9d9;
-  cursor: pointer;
-  height: 35px;
-  margin: 7px;
-  outline: none;
-  width: 69px;
-}
-.mode1, .mode2 {
-  margin-bottom: 25px;
-  cursor: pointer;
+.results {
+  color: #fff;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
 }
 .basic-mode {
   justify-content: space-evenly;
@@ -57,6 +50,22 @@ body {
 .complex-mode {
   justify-content: space-between;
 }
+.btn {
+  background: linear-gradient(hsla(0, 14%, 79%, 0.13), rgba(0, 0, 0, 0.16));
+  border: 1px solid #0d0d0d;
+  border-radius: 4px;
+  box-shadow: inset 0 -1px hsla(0, 0%, 100%, 0.1), inset 0 1px rgba(0, 0, 0, 0.02);
+  color: #d9d9d9;
+  cursor: pointer;
+  height: 35px;
+  margin: 7px;
+  outline: none;
+  width: 69px;
+  font-size: 20px;
+}
+.btn-action {
+  background-color: #7a7875;
+}
 .equal-sign {
   width: 232px;
 }
@@ -67,16 +76,4 @@ body {
 .mode2,
 .complex-mode {
   display: none;
-}
-.toggle-button {
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-}
-.result {
-  color: #fff;
-  font: size 30px;
-  perspective: 1000px;
-}
-.btn-special {
-  background-color: #7a7875;
 }

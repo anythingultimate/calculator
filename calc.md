@@ -1,3 +1,5 @@
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -79,3 +81,16 @@
     </div>
   </body>
 </html>
+```
+
+Then CSS file
+
+```css
+
+```
+
+Finally Javascript file
+
+```js
+
+```
